@@ -1,0 +1,178 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f5f5; /* Lighter background */
+    color: #333; /* Darker text */
+    overflow-x: hidden;
+}
+
+.section {
+    min-height: 100vh;
+    padding: 6rem 1rem;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .section {
+        padding: 6rem 2rem;
+    }
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card {
+    background: rgba(255, 255, 100, 0.8); /* Lighter card background */
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(34, 197, 94, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 768px) {
+    .card {
+        padding: 2rem;
+    }
+}
+
+.feature-icon {
+    font-size: 2rem;
+    color: #22c55e;
+    margin-bottom: 1rem;
+}
+
+.tech-item {
+    transition: transform 0.3s ease;
+}
+
+.tech-item:hover {
+    transform: translateY(-5px);
+    background-color: #ADD8E6; /* Light blue on hover */
+    color: #333;
+}
+
+.floating-nav {
+    margin: 0.5rem 1rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.2); /* More transparent background */
+    backdrop-filter: blur(10px); /* Adds a glass-like blur effect */
+    border: 1px solid rgba(34, 197, 94, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3); /* Optional: Adds a subtle shadow */
+}
+
+@media (min-width: 768px) {
+    .floating-nav {
+        margin: 1rem 2rem;
+    }
+}
+
+.footer {
+    background: rgba(150, 240, 150, 0.5); /* Semi-transparent footer background */
+    backdrop-filter: blur(10px); /* Optional: Adds a glass-like blur effect */
+    border-top: 1px solid rgba(34, 197, 94, 0.1);
+    padding: 4rem 0;
+}
+
+.footer-link {
+    color: #1e2320; /* Darker link color */
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #22c55e;
+}
+
+.team-member-card {
+    transition: transform 0.3s ease;
+}
+
+.team-member-card:hover {
+    transform: translateY(-5px);
+    border: 2px solid #D8BFD8; /* Purple border on hover */
+}
+
+.team-member-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #22c55e;
+}
+
+@media (min-width: 768px) {
+    .team-member-image {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+.primary-button {
+    background: #22c55e;
+    color: #ffffff;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    transition: background-color 0.3s ease;
+}
+
+.primary-button:hover {
+    background: #16a34a;
+}
+
+.secondary-button {
+    border: 2px solid #22c55e;
+    color: #22c55e;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+}
+
+.secondary-button:hover {
+    background: rgba(34, 197, 94, 0.1);
+    color: #FFC107; /* Amber text on hover */
+}
+
+/* Adding an accent color (orange) */
+.accent-text {
+    color: #ff9900;
+}
+
+.accent-background {
+    background-color: #ff9900;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.accent-background:hover {
+    background-color: #ff7f00;
+}
+
+/* Additional complementary colors */
+.complementary-text {
+    color: #808080; /* Gray text */
+}
+
+.complementary-background {
+    background-color: #ADD8E6; /* Light blue background */
+    color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.complementary-background:hover {
+    background-color: #87CEEB; /* Lighter blue on hover */
+}
+
+.purple-highlight {
+    background-color: #D8BFD8; /* Purple background */
+    color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.purple-highlight:hover {
+    background-color: #C7B8EA; /* Lighter purple on hover */
+}
