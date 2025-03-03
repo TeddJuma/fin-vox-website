@@ -1,7 +1,7 @@
 function Footer() {
     try {
-        const smoothScrollTo = (id) => {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        const handleLinkClick = (hash) => {
+            window.location.hash = hash;
         };
 
         return (
@@ -15,29 +15,37 @@ function Footer() {
                         <div data-name="footer-links">
                             <h4 className="text-lg font-semibold mb-4 text-black">Quick Links</h4>
                             <ul className="space-y-2">
+                                <li><a href="#home" onClick={(e) => {
+                                    e.preventDefault();
+                                    handleLinkClick('home');
+                                }} className="footer-link">Home</a></li>
                                 <li><a href="#features" onClick={(e) => {
                                     e.preventDefault();
-                                    smoothScrollTo('features');
+                                    handleLinkClick('features');
                                 }} className="footer-link">Features</a></li>
                                 <li><a href="#solution" onClick={(e) => {
                                     e.preventDefault();
-                                    smoothScrollTo('solution');
+                                    handleLinkClick('solution');
                                 }} className="footer-link">Solution</a></li>
                                 <li><a href="#tech" onClick={(e) => {
                                     e.preventDefault();
-                                    smoothScrollTo('tech');
+                                    handleLinkClick('tech');
                                 }} className="footer-link">Technology</a></li>
+                                <li><a href="#impact" onClick={(e) => {
+                                    e.preventDefault();
+                                    handleLinkClick('impact');
+                                }} className="footer-link">Impact</a></li>
                                 <li><a href="#team" onClick={(e) => {
                                     e.preventDefault();
-                                    smoothScrollTo('team');
+                                    handleLinkClick('team');
                                 }} className="footer-link">Our Team</a></li>
                             </ul>
                         </div>
                         <div data-name="footer-contact">
                             <h4 className="text-lg font-semibold mb-4 text-black">Contact</h4>
                             <ul className="space-y-2">
-                                <li className="footer-link"> <a href="mailto:info@finvox.ai"> info@finvox.ai </a> </li>
-                                <li className="footer-link"> <a href="tel:+15551234567">+1 (555) 123-4567 </a> </li>
+                                <li className="footer-link"> <a href="mailto:info@finvox.ai"> info@finvox.com </a> </li>
+                                <li className="footer-link"> <a href="tel:+15551234567">+254 740 682 018 </a> </li>
                             </ul>
                         </div>
                         <div data-name="footer-social">

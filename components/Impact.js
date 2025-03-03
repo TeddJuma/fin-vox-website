@@ -4,7 +4,7 @@ function Impact() {
         const isVisible = useIntersectionObserver(impactRef);
 
         return (
-            <section data-name="impact" ref={impactRef} id="impact" className="section bg-green.-500">
+            <section data-name="impact" ref={impactRef} id="impact" className="section bg-green-600">
                 <div className="container mx-auto px-6">
                     <div className={`scroll-reveal ${isVisible ? 'visible' : ''}`}>
                         <div className="scroll-reveal-content">

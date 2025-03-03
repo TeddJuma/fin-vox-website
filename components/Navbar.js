@@ -10,8 +10,36 @@ function Navbar() {
             setIsMenuOpen(false);
         };
 
-        const smoothScrollTo = (id) => {
+        const handleLinkClick = (hash) => {
+            window.location.hash = hash;
+            closeMenu();
+        };
+
+        const handleSmoothScroll = (e, id) => {
+            e.preventDefault();
             document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+            closeMenu();
+        };
+
+        const handleHomeLinkClick = (e) => {
+            e.preventDefault();
+            window.location.hash = '';
+            document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+            closeMenu();
+        };
+
+        const handleSectionLinkClick = (e, id) => {
+            e.preventDefault();
+            closeMenu();
+
+            if (window.location.pathname === '/') {
+                handleSmoothScroll(e, id);
+            } else {
+                window.location.href = '/';
+                window.addEventListener('load', function() {
+                    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+                }, { once: true });
+            }
         };
 
         return (
@@ -35,21 +63,10 @@ function Navbar() {
 
                             {/* Desktop menu */}
                             <div data-name="nav-links" className="hidden md:flex space-x-8">
-                                <a href="#home" onClick={(e) => {
-                                    e.preventDefault();
-                                    smoothScrollTo('home');
-                                }} className="text-gray-600 hover:text-green-400 transition-colors">Home</a>
-                                <a href="#features" className="text-gray-600 hover:text-green-400 transition-colors">Features</a>
-                                <a href="#solution" className="text-gray-600 hover:text-green-400 transition-colors">Solution</a>
-                                <a href="#tech" onClick={(e) => {
-                                    e.preventDefault();
-                                    smoothScrollTo('tech');
-                                }} className="text-gray-600 hover:text-green-400 transition-colors">Technology</a>
-                                <a href="#impact" onClick={(e) => {
-                                    e.preventDefault();
-                                    smoothScrollTo('impact');
-                                }} className="text-gray-600 hover:text-green-400 transition-colors">Impact</a>
-                                <a href="/team" className="text-gray-600 hover:text-green-400 transition-colors">Our Team</a>
+                                <a href="#" onClick={handleHomeLinkClick} className="text-gray-600 hover:text-green-400 transition-colors">Home</a>
+                                <a href="#" onClick={(e) => handleSectionLinkClick(e, 'features')} className="text-gray-600 hover:text-green-400 transition-colors">Features</a>
+                                <a href="#" onClick={(e) => handleSectionLinkClick(e, 'solution')} className="text-gray-600 hover:text-green-400 transition-colors">Solution</a>
+                                <a href="#" onClick={(e) => handleSectionLinkClick(e, 'tech')} className="text-gray-600 hover:text-green-400 transition-colors">Technology</a>
                             </div>
                         </div>
 
@@ -59,24 +76,10 @@ function Navbar() {
                             className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} mt-4`}
                         >
                             <div className="flex flex-col space-y-4">
-                                <a href="#home" onClick={(e) => {
-                                    e.preventDefault();
-                                    smoothScrollTo('home');
-                                    closeMenu();
-                                }} className="text-black hover:text-green-400 transition-colors">Home</a>
-                                <a href="/features" onClick={closeMenu} className="text-black hover:text-green-400 transition-colors">Features</a>
-                                <a href="/solution" onClick={closeMenu} className="text-black hover:text-green-400 transition-colors">Solution</a>
-                                <a href="#tech" onClick={(e) => {
-                                    e.preventDefault();
-                                    smoothScrollTo('tech');
-                                    closeMenu();
-                                }} className="text-black hover:text-green-400 transition-colors">Technology</a>
-                                <a href="#impact" onClick={(e) => {
-                                    e.preventDefault();
-                                    smoothScrollTo('impact');
-                                    closeMenu();
-                                }} className="text-black hover:text-green-400 transition-colors">Impact</a>
-                                <a href="/team" onClick={closeMenu} className="text-black hover:text-green-400 transition-colors">Our Team</a>
+                                <a href="#" onClick={handleHomeLinkClick} className="text-black hover:text-green-400 transition-colors">Home</a>
+                                <a href="#" onClick={(e) => handleSectionLinkClick(e, 'features')} className="text-black hover:text-green-400 transition-colors">Features</a>
+                                <a href="#" onClick={(e) => handleSectionLinkClick(e, 'solution')} className="text-black hover:text-green-400 transition-colors">Solution</a>
+                                <a href="#" onClick={(e) => handleSectionLinkClick(e, 'tech')} className="text-black hover:text-green-400 transition-colors">Technology</a>
                             </div>
                         </div>
                     </div>
@@ -84,7 +87,7 @@ function Navbar() {
             </nav>
         );
     } catch (error) {
-        reportError(error);
-        return null;
+        console.error("Error in Navbar:", error);
+        return <div>Error loading Navbar</div>;
     }
 }
